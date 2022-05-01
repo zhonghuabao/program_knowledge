@@ -5,7 +5,7 @@
    2.1  那么我们 直接 调用 b， 其实也是调用 a, 但是我们可以对 b进行二次加工
    2. 那么我们 直接 调用 b， 其实也是调用 a, 但是我们可以对 b进行二次加工
 
-```var origin = {"b":1}
+`````var origin = {"b":1}
 
 var obj = new Proxy(origin, {
     get:function(target, propKey, receiver){
@@ -20,4 +20,5 @@ var obj = new Proxy(origin, {
 })
 console.log(obj.b)
 console.log(obj.a)
-```
+`````
+
