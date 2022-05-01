@@ -2,10 +2,11 @@
 ---
 1. proxy 是一种对象的代理工具
 2. 简单理解， a 是一个对象 ， b = new proxy (b, handler)
-   2.1  那么我们 直接 调用 b， 其实也是调用 a, 但是我们可以对 b进行二次加工
-   2. 那么我们 直接 调用 b， 其实也是调用 a, 但是我们可以对 b进行二次加工
+   1.  那么我们 直接 调用 b， 其实也是调用 a, 但是我们可以对 b进行二次加工
+3. 下面是例子
 
-`````var origin = {"b":1}
+```javascript {.line-numbers}
+var origin = {"b":1} 
 
 var obj = new Proxy(origin, {
     get:function(target, propKey, receiver){
@@ -18,7 +19,6 @@ var obj = new Proxy(origin, {
     },
 
 })
-console.log(obj.b)
-console.log(obj.a)
-`````
+```
+
 
