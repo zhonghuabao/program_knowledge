@@ -9,11 +9,11 @@ console.log(a1);
 
 ### 下面都是数组拥有的属性和方法，包含了js 和 es6的特性
 ```javascript
-1. at: ƒ at()    //获取数组下标的值，   arr.at(-1) = arr[arr.length - 1]
-1. concat: ƒ concat()  //拼接  a = a.concat(b)
-1. constructor: ƒ Array()   //constructor 属性返回对象的构造函数。其返回值是对函数的引用
+1. at: ƒ at()                   //获取数组下标的值，   arr.at(-1) = arr[arr.length - 1]
+1. concat: ƒ concat()           //拼接  a = a.concat(b)
+1. constructor: ƒ Array()       //constructor 属性返回对象的构造函数。其返回值是对函数的引用
 1. copyWithin: ƒ copyWithin()  //将数组元素复制到数组的其他位置
-1. entries: ƒ entries()  //把数组变成 key-value 的形式，给迭代器遍历使用
+1. entries: ƒ entries()        //把数组变成 key-value 的形式，给迭代器遍历使用
 1. every: ƒ every()
 1. fill: ƒ fill()
 1. filter: ƒ filter()
