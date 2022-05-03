@@ -8,12 +8,12 @@ console.log(a1);
 2. [[Prototype]]: Array(0)
 
 ### 下面都是数组拥有的属性和方法，包含了js 和 es6的特性
-
-1. at: ƒ at()
-1. concat: ƒ concat()
-1. constructor: ƒ Array()
-1. copyWithin: ƒ copyWithin()
-1. entries: ƒ entries()
+```javascript
+1. at: ƒ at()    //获取数组下标的值，   arr.at(-1) = arr[arr.length - 1]
+1. concat: ƒ concat()  //拼接  a = a.concat(b)
+1. constructor: ƒ Array()   //constructor 属性返回对象的构造函数。其返回值是对函数的引用
+1. copyWithin: ƒ copyWithin()  //将数组元素复制到数组的其他位置
+1. entries: ƒ entries()  //把数组变成 key-value 的形式，给迭代器遍历使用
 1. every: ƒ every()
 1. fill: ƒ fill()
 1. filter: ƒ filter()
@@ -46,7 +46,7 @@ console.log(a1);
 1. toString: ƒ toString()
 1. unshift: ƒ unshift()
 1. values: ƒ values()
-
+```
 ## 思维导图
 
 ![JS思维导图](./js_array%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.gif)
