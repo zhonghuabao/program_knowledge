@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<body>
+    <button id="choujiang">点击抽奖</button>
+</body>
+<script>
+    //返回随机数
+    function randomNum(){
+        let index = Math.floor(Math.random()*100); 
+        console.log("random:",index)
+        return index
+    };
+
+    //抽奖事件
+    function choujiang(){
+        jiang_num = randomNum();
+
+        const p = new Promise((resolve,reject)=>{
+
+            setTimeout(function(){
+            if(jiang_num <= 30 ){
+                
+                resolve(jiang_num)
+            }else{
+               
+                reject(jiang_num)
+            }
+        },1000)
+        });
+
+        p.then((value)=>{
+            alert("恭喜你中奖了"+value);
+        }, (reason)=>{
+            alert("再接再厉"+reason);
+        });
+    }
+
+   
+
+
+    
+    
+    let cj_div = document.getElementById("choujiang");
+
+    cj_div.addEventListener("click",()=>{
+        choujiang()
+    });
+
+</script>
+</html>

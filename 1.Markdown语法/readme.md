@@ -15,3 +15,8 @@ https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/markdown-basics
 
 ### 这是 <h3> 三级标题
 ```
+
+## 插入图片
+```
+![Alt Text](url)
+```
