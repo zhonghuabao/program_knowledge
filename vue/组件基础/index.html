@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+<script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">{{message}}</div>
+</body>
+
+<script>
+
+   let appdata = {
+       data(){
+           return {
+               message:"hello world"
+           }
+       }
+   }
+   //创建一个应用实例，并挂载到 app上
+   Vue.createApp(appdata).mount("#app")
+
+   
+
+</script>
+
+</html>
