@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<body>
+    <button id="choujiang">点击抽奖</button>
+</body>
+<script>
+    let p = new Promise((resolve, reject) => {
+        reject('error123') //返回失败
+    })
+
+    //执行失败回调
+    p.catch(reason => {
+        console.log(reason)
+    })
+
+</script>
+</html>
