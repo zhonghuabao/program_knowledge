@@ -21,6 +21,8 @@ class Compile{
 
         //1.获取文档碎片对象
         const frament = this.node2Fragment(this.el)
+
+        // document.getElementById("app").appendChild(frament)
         //2.编译模板
         this.compile(frament)
     }
@@ -28,7 +30,21 @@ class Compile{
     compile(fragment){
         const childNodes = fragment.childNodes;
         console.log(fragment)
-        console.log(childNodes)
+        console.log(childNodes);
+        [...childNodes].forEach(child => {
+             if(this.isElementNode(child)){
+                 //元素节点
+                 this.compileElement(child)
+             }else{
+                 //txt
+                 this.compileText(child)
+             }
+
+             //子节点递归 
+             if(child.childNodes && child.childNodes.length){
+                 this.compile(child)
+             }
+        })
     }
 
     //获取文档碎片对象
