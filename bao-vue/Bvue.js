@@ -5,6 +5,7 @@ class Bvue{
            
            this.$options = options
 
+           
            if(this.$el){
                new Compile(this.$el, this)
            }
@@ -17,7 +18,36 @@ class Compile{
         // console.log(el, vm)
         this.el = this.isElementNode(el) ? el : document.querySelector(el);
         this.vm = vm
+
+        //1.获取文档碎片对象
+        const frament = this.node2Fragment(this.el)
+        //2.编译模板
+        this.compile(frament)
     }
+    //编译模板
+    compile(fragment){
+        const childNodes = fragment.childNodes;
+        console.log(fragment)
+        console.log(childNodes)
+    }
+
+    //获取文档碎片对象
+    node2Fragment(el){
+        //创建一个虚拟节点对象
+        const fragment = document.createDocumentFragment()
+        // console.log(fragment)
+
+        let firstChild;
+ 
+        while(firstChild = el.firstChild){
+            //依次取 节点
+            // console.log("firstChild==",firstChild)
+            fragment.appendChild(firstChild)
+        }
+        // console.log("fragment=",fragment)
+        return fragment
+    }
+
 
 
     //是否为node节点 ，就是有标签的内容
