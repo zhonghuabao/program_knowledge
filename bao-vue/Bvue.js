@@ -1,3 +1,42 @@
+const comileUtil = {
+    getVal(expr,vm){
+        let arr = expr.split(".")
+        // console.log("arr = ",arr)
+
+        //这里不理解
+        let re = arr.reduce((data,currentval)=>{
+            // console.log(data)
+            return data[currentval]
+        },vm.$data)
+
+        // console.log(vm.$data)
+
+        return re
+    },
+
+    text(node, expr, vm){
+        let val;
+        
+        if(expr.indexOf("{{") !== -1){
+            val = expr.replace(/\{\{(.+?)\}\}/g, (...args)=>{
+                return this.getVal(args[1], vm)
+            })
+        }else{
+            val = this.getVal(expr,vm)
+        }
+
+        this.update.textUpdate(node,val)
+    },
+
+    update:{
+        textUpdate(node,value){
+            node.textContent = value
+        }
+    }
+
+
+}
+
 class Bvue{
      constructor(options){
            this.$el = options.el
@@ -12,6 +51,12 @@ class Bvue{
      }
 }
 
+
+
+
+
+
+
 //指令解析器
 class Compile{
     constructor(el, vm){
@@ -25,13 +70,17 @@ class Compile{
         // document.getElementById("app").appendChild(frament)
         //2.编译模板
         this.compile(frament)
+
+        //3.把子元素的所有内容添加到根元素中
+        this.el.appendChild(frament)
     }
     //编译模板
     compile(fragment){
         const childNodes = fragment.childNodes;
-        console.log(fragment)
-        console.log(childNodes);
+        // console.log(fragment)
+        // console.log(childNodes);
         [...childNodes].forEach(child => {
+            //  console.log(child)
              if(this.isElementNode(child)){
                  //元素节点
                  this.compileElement(child)
@@ -46,6 +95,27 @@ class Compile{
              }
         })
     }
+
+    compileElement(node){
+        const attributes = node.attributes;
+        // console.log("attributes=",attributes)
+        [...attributes].forEach(attr => {
+
+        })
+
+    }
+
+    compileText(node){
+         const content = node.textContent;
+         if(/\{\{(.+?)\}\}/.test(content)){
+             comileUtil['text'](node,content,this.vm)
+         }
+    }
+
+
+
+
+
 
     //获取文档碎片对象
     node2Fragment(el){
@@ -76,3 +146,5 @@ class Compile{
 
 
 }
+
+
