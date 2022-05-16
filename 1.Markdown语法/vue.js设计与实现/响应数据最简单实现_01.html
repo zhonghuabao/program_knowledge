@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+   
+</body>
+
+<script>
+
+ const bucket = new Set()
+
+ const data = {text:"hello world"}
+
+ const obj = new Proxy(data,{
+     get(target, key){
+          bucket.add(effect)
+          return target[key]
+     },
+     set(target, key, newVal){
+          target[key] = newVal
+          bucket.forEach(fn=>fn())
+          return true
+     }
+ })
+
+
+ function effect(){
+     document.body.innerText = obj.text
+ }
+
+ effect()
+
+//  const a = obj.text
+
+//  console.log(a)
+     
+ setTimeout(()=>{
+    //  console.log("1111")
+     obj.text = "hahahaha"
+    //  console.log("222")
+    //  console.log(data)
+    //  console.log(bucket)
+
+ },3000)
+
+
+
+</script>
+
+</html>
